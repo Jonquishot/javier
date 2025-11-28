@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Convite 3 Palavrinhas - Javier Nicolas</title>
+  <link rel="icon" href="https://lh3.googleusercontent.com/d/1A-V3lPNYJVRQXCjOyaTb8nneCBAi4MaF">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: url('https://drive.google.com/uc?export=view&id=1YYM5lZwbFmZU8Ir-f4NmkLJ-D71Lf-gN') no-repeat center center fixed;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: 3px solid #63c4df;
+      border-radius: 30px;
+      overflow: hidden;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .header {
+      background: linear-gradient(90deg, #66B2FF, #66FFB2);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .header h1 {
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+
+    .header p {
+      color: #667eea;
+      font-size: 1rem;
+      text-shadow:  0px 0px 0 #000, -0px -0px 0 #000, 0px -0px 0 #000, -1px 1px 0 #000;
+    }
+
+    .icon-left {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      color: #ff9800;
+      font-size: 1.8rem;
+    }
+
+    .icon-right {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      color: #ff9800;
+      font-size: 1.8rem;
+    }
+
+    .photo {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .photo img {
+      width: 158px;
+      height: 150px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #4caf50;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+      @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .name {
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      font-family: 'Fredoka', cursive;
+      background: linear-gradient(90deg, #FF0000, #FFA500, #FFFF00, #008000, #0000FF, #4B0082, #8B00FF);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 300% 300%;
+      animation: rainbow 5s ease-in-out infinite;
+    }
+
+    .age {
+    display: inline-block;
+    background: linear-gradient(135deg, #4caf50, #2196f3);
+    color: white;
+    padding: 1px 30px;
+    border-radius: 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 15px 0;
+    animation: bounce 1s 
+    ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+    0%, 100% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+    }
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .message {
+      text-align: center;
+      /*padding: 0 20px 20px;*/
+      color: #66ffb2;
+      font-style: italic;
+      line-height: 1.5;
+      font-size: 20px;
+      text-shadow: 0px 0px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+
+
+    /* CONTADOR REGRESSIVO */
+    .countdown {
+      text-align: center;
+      margin: 8px 0;
+      padding: 0px 0px;
+      background: rgba(102, 178, 255, 0.5);
+      font-size: 1rem;
+      color: #2C5AA0;
+      font-weight: bold;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .countdown span {
+      font-size: 1.5rem;
+      color: #FF9800;
+      font-weight: bold;
+      margin: 0 5px;
+    }
+
+    /* CARD DE EVENTO */
+    .event-card {
+      background: linear-gradient(135deg, #e3f2fd, #c8e6c9);
+      padding: 20px;
+      margin: 0 20px 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 2px solid #b2ebf2;
+    }
+
+    .event-card h3 {
+      color: #4CAF50;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .event-card p.date {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #2C5AA0;
+      margin: 5px 0;
+      line-height: 1.3;
+    }
+
+    .event-card p.time {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #2C5AA0;
+      margin: 5px 0;
+    }
+
+    .event-card .location {
+      font-size: 1.1rem;
+      color: #4A90E2;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .event-card .address {
+      font-size: 0.9rem;
+      color: #757575;
+      margin-top: 5px;
+    }
+
+    /* CARD DE VALOR */
+    .price-card {
+      background: #FFF8E1;
+      padding: 20px;
+      margin: 0 20px 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 2px solid #FFCC80;
+    }
+
+    .price-card .icon {
+      color: #FF9800;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .price-card h3 {
+      color: #FF9800;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .price-card .value {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #FF9800;
+      margin: 10px 0;
+    }
+
+    .price-card p.note {
+      font-size: 0.8rem;
+      color: #757575;
+      margin: 5px 0;
+      font-style: italic;
+    }
+
+    .price-card .policy {
+      font-size: 0.9rem;
+      color: #2C5AA0;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    /* BOTÕES */
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      gap: 10px;
+    }
+
+    .btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-local {
+      background: #66B2FF;
+      color: white;
+    }
+
+    .btn-confirmar {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .btn-sugestao {
+      background: #FF9800;
+      color: white;
+    }
+
+    .btn i {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .btn span {
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    /* MAPA */
+    .map-container {
+      padding: 0 20px 20px;
+      text-align: center;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 150px;
+      border-radius: 15px;
+      border: none;
+    }
+
+    .footer {
+      background: linear-gradient(90deg, #66B2FF, #66FFB2);
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: #2C5AA0;
+      font-size: 0.9rem;
+    }
+
+    .footer i {
+      color: #FF9800;
+      margin: 0 5px;
+    }
+
+    /* MODAL DE SUGESTÃO */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 5px;
+      border-radius: 20px;
+      max-width: 320px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .modal h3 {
+      color: #9C27B0;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .modal p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .modal ul {
+      list-style: none;
+      text-align: left;
+      padding-left: 10px;
+      font-size: 0.95rem;
+      color: #2C5AA0;
+      margin-bottom: 20px;
+    }
+
+    .modal ul li {
+      margin: 8px 0;
+    }
+
+    .modal button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .modal button:hover {
+      background: #388E3C;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 480px) {
+      .container { max-width: 100%; }
+      .name { font-size: 1.5rem; }
+      .age { font-size: 1.1rem; }
+      .event-card p.date { font-size: 1.2rem; }
+      .price-card .value { font-size: 1.5rem; }
+      .buttons { padding: 15px; }
+      .btn { width: 60px; height: 60px; }
+      .btn i { font-size: 1.3rem; }
+    }
+  </style>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">🎉
+      <div class="icon-left"><i class="fas fa-birthday-cake"></i></div>
+      <div class="name">Javier Nicolas</div>
+      <div class="age">✨01 Aninho✨</div>
+      <div class="icon-right"><i class="fas fa-birthday-cake"></i></div>
+    </div>
+
+    <!-- FOTO DO BEBÊ -->
+    <div class="photo">
+      <img src="https://drive.google.com/uc?export=view&id=1A-V3lPNYJVRQXCjOyaTb8nneCBAi4MaF" alt="Foto do bebê">
+    </div>
+
+    <!-- NOME E IDADE -->
+
+
+    <!-- MENSAGEM -->
+    <div class="message">"Por este menino orava eu; e o Senhor me concedeu a petição que eu lhe fizera" 1Samuel 1:27</div>
+
+    <!-- CONTADOR REGRESSIVO -->
+    <div class="countdown" id="countdown">
+      Faltam: <span id="days">0</span>d <span id="hours">0</span>h <span id="minutes">0</span>m <span id="seconds">0</span>s
+    </div>
+
+    <!-- EVENTO -->
+    <div class="event-card">
+      <h3>SERÁ NO DIA</h3>
+      <p class="date">28 DE JANEIRO, QUARTA-FEIRA ÀS</p>
+      <p class="time">18:00</p>
+      <div class="location">Rio Minas Nilópolis</div>
+      <div class="address">Estr. Antônio José Bitencourt, 690</div>
+    </div>
+
+    <!-- VALOR DO RODÍZIO -->
+    <div class="price-card">
+      <div class="icon"><i class="fas fa-medal"></i></div>
+      <h3>VALOR DO RODÍZIO</h3>
+      <div class="value">R$ 75,00</div>
+      <p class="note">Valores podem ter alterações e será informado com antecedência</p>
+      <div class="policy">Crianças até 5 anos não pagam | 6 a 10 anos pagam meia</div>
+    </div>
+
+    <!-- MAPA -->
+    <div class="map-container">
+      <iframe 
+        src="https://maps.google.com/?q=Rio+Minas+Nil%C3%B3polis+Estr.+Ant%C3%B4nio+Jos%C3%A9+Bitencourt+690&output=embed"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- BOTÕES -->
+    <div class="buttons">
+      <a href="https://maps.google.com/?q=Rio+Minas+Nil%C3%B3polis+Estr.+Ant%C3%B4nio+Jos%C3%A9+Bitencourt+690" 
+         target="_blank" class="btn btn-local">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Local</span>
+      </a>
+      <a href="https://wa.me/5521992135313?text=Ol%C3%A1%21%20Confirmo%20presen%C3%A7a%20na%20festa%20do(a)%20Javier%20Nicolas!" 
+         target="_blank" class="btn btn-confirmar">
+        <i class="fab fa-whatsapp"></i>
+        <span>Confirmar</span>
+      </a>
+      <div class="btn btn-sugestao" onclick="openGiftModal()">
+        <i class="fas fa-gift"></i>
+        <span>Sugestão</span>
+      </div>
+    </div>
+
+    <!-- MÚSICA -->
+    <div style="text-align: center; padding: 10px;">
+      <button id="playMusic" style="background: #0066ff; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: bold;">
+        ▶️ Tocar Música
+      </button>
+      <audio id="bgMusic" loop>
+        <source src="https://drive.google.com/file/d/1qMvnUvuWD-Vm5hI0nYm2EYhRTTvbaP2r/preview" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+      </audio>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <h1>♪ 3 PALAVRINHAS ♪</h1>
+      </i> <p>Vem celebrar comigo!</p> <i class="fas fa-bell"></i>
+    </div>
+
+  </div>
+
+  <!-- MODAL DE SUGESTÃO -->
+  <div id="giftModal" class="modal">
+    <div class="modal-content">
+      <h3>🎁SUGESTÃO DE PRESENTES🎁</h3>
+      <p>Sua presença é o maior presente! Mas se desejar presentear:</p>
+      <ul>
+        <li>👕Roupa (1 Ano+)</li>
+        <li>👟Sapato (Tamanho 20)</li>
+        <li>🧸 Brinquedo</li>
+      </ul>
+      <button onclick="closeGiftModal()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    // CONTADOR REGRESSIVO
+    const countdownDate = new Date("January 28, 2026 18:00:00").getTime();
+
+    const countdownTimer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      if (distance < 0) {
+        clearInterval(countdownTimer);
+        document.getElementById("countdown").innerHTML = "🎉 O EVENTO JÁ COMEÇOU!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+    }, 1000);
+
+    // TOCAR MÚSICA
+    const bgMusic = document.getElementById('bgMusic');
+    const playButton = document.getElementById('playMusic');
+
+    playButton.addEventListener('click', function() {
+      bgMusic.play()
+        .then(() => {
+          playButton.innerText = "⏸️ Pausar Música";
+          playButton.onclick = function() {
+            bgMusic.pause();
+            playButton.innerText = "▶️ Tocar Música";
+            playButton.onclick = () => bgMusic.play().catch(e => console.log("Erro ao tocar música"));
+          };
+        })
+        .catch(e => {
+          alert("Por favor, clique novamente para permitir a reprodução da música.");
+        });
+    });
+
+    // MODAL DE PRESENTES
+    function openGiftModal() {
+      document.getElementById('giftModal').style.display = 'flex';
+    }
+
+    function closeGiftModal() {
+      document.getElementById('giftModal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
